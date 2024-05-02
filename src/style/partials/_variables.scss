@@ -1,12 +1,16 @@
 //Color Vars
 $headerLogoColor: #0c7cec;
 $mainColor: #0282F9;
+$bottomFooterColor: #303030;
 
 // Height Vars
 $navHeight: 10vh;
 $heroHeight: 20vh;
 $footerHeight: 50vh;
 $mainHeight: calc(100vh - $navHeight - $heroHeight - $footerHeight);
+// footers heights
+$topFooter: calc($footerHeight - 15vh);
+$bottomFooter: calc($footerHeight - $topFooter);
 
 // Width Vars 
 $heroWidth: 100vw;

@@ -52,10 +52,11 @@ export default {
 @use "../style/partials/variables.scss" as *;
 
 .content {
+    position: relative;
     background-color: $mainColor;
     min-height: $mainHeight;
     color: white;
-
+    z-index: 100;
     ul {
         @include flex(row, center, center);
 
