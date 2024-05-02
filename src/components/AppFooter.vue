@@ -127,9 +127,36 @@ export default {
                         isTitle: false,
                     },
                 ]
+            ],
+
+            bottomFooterIcons: [
+                {
+                    imgPath: "footer-facebook.png"
+                },
+                {
+                    imgPath: "footer-twitter.png"
+                },
+                {
+                    imgPath: "footer-youtube.png"
+                },
+                {
+                    imgPath: "footer-pinterest.png"
+                },
+                {
+                    imgPath: "footer-periscope.png"
+                },
             ]
         }
+
+    },
+
+    methods: {
+        getImgItem(imageName) {
+            return new URL(`../assets/img/${imageName}`, import.meta.url).href
+
+        }
     }
+
 }
 </script>
 
@@ -137,7 +164,8 @@ export default {
     <div class="top-Footer">
         <div class="left-Items">
             <ul v-for="title in topFooterItems">
-                <li v-for="currItem in title" ><a href="" :class="(currItem.isTitle) ? 'title' : ''">{{ currItem.itemName}}</a></li>
+                <li v-for="currItem in title"><a href="" :class="(currItem.isTitle) ? 'title' : ''">{{
+                    currItem.itemName }}</a></li>
             </ul>
         </div>
 
@@ -147,7 +175,21 @@ export default {
     </div>
 
     <div class="bottom-Footer">
+        <button class="sign-btn">
+            SIGN-UP NOW!
+        </button>
 
+        <div class="social">
+            <div class="follow">FOLLOW US</div>
+            <ul>
+                <li v-for="currItem in bottomFooterIcons">
+                    <a href="">
+                        <img :src="getImgItem(currItem.imgPath)" alt="">
+                    </a>
+                </li>
+
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -163,6 +205,7 @@ export default {
     position: relative;
     min-height: $topFooter;
     background-image: url("../assets/img/footer-bg.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
 
     .left-Items {
@@ -193,6 +236,10 @@ export default {
                     text-decoration: none;
                     text-align: center;
                     color: grey;
+
+                    &:hover {
+                        border-bottom: 1px solid grey;
+                    }
                 }
             }
         }
@@ -216,9 +263,56 @@ export default {
 }
 
 .bottom-Footer {
+    @include flex(row, space-between, center);
     position: relative;
     min-height: $bottomFooter;
     background-color: $bottomFooterColor;
-    z-index: 999;
+    z-index: 100;
+
+    .sign-btn {
+        margin: 0 40px;
+        padding: 10px;
+        background-color: inherit;
+        color: white;
+        border: 3px solid $headerLogoColor;
+
+
+        &:hover {
+            border: 3px solid white;
+        }
+    }
+
+    .social {
+        @include flex(row, space-around, center);
+
+        margin: 0 40px;
+        width: 40%;
+
+        div {
+            color: $mainColor;
+            font-weight: 700;
+        }
+
+
+        ul {
+            @include flex(row, center, center);
+            list-style: none;
+            gap: 15px;
+            li {
+                
+                a {
+                    text-decoration: none;
+                    text-align: center;
+                    
+                    img {
+                        width: 30px;
+                        aspect-ratio: 1;
+                    }
+                }
+            }
+        }
+
+
+    }
 }
 </style>
