@@ -80,7 +80,7 @@ export default {
     background-color: white;
 
     .nav-items {
-        font-size: 0.8rem;
+        font-size: 0.6rem;
         font-weight: 600;
         // border: 1px solid grey;
         ul {
@@ -90,8 +90,8 @@ export default {
             gap: 5px;
 
             .active {
-                border-bottom: 4px solid #0c7cec;
-                color: #0c7cec;
+                border-bottom: 4px solid $headerLogoColor;
+                color: $headerLogoColor;
             }
 
             li {
@@ -103,7 +103,7 @@ export default {
                 // Stile addizionale degli li nel navbar
 
                 &:hover {
-                    border-bottom: 4px solid #0c7cec;
+                    border-bottom: 4px solid $headerLogoColor;
                 }
 
                 a {

@@ -9,5 +9,5 @@ export default {
 </template>
 
 <style lang="scss">
-
+h2{}
 </style>
