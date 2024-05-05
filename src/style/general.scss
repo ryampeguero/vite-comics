@@ -13,16 +13,24 @@ body {
 }
 
 .container {
-    display: flex;
+    @include flex(row, center, center, wrap);
     margin: 0 auto;
     min-width: 1000px;
-    max-width: 1000px;
-    
+    max-width: 1000px;      
+    flex-wrap: wrap;
 
     // debug
     border: 2px solid red;
 }
 
 .flex-between {
-    @include flex(row, space-between, center)
+    @include flex(row, space-between, center);
+}
+
+.flex-start {
+    @include flex(row, flex-start, center);
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
 }

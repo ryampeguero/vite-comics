@@ -162,8 +162,8 @@ export default {
 
 <template>
     <div class="top-Footer">
-        <div class="container">
-            <div class="left-Items">
+        <div class="container flex-start">
+            <div class="left-Items ">
                 <ul v-for="title in topFooterItems">
                     <li v-for="currItem in title"><a href="" :class="(currItem.isTitle) ? 'title' : ''">{{
                         currItem.itemName }}</a></li>

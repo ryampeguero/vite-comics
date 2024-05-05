@@ -1,7 +1,7 @@
 <script>
 import AppHeader from "./components/AppHeader.vue";
 import AppHero from "./components/AppHero.vue";
-import AppCard from "./components/AppCard.vue";
+import AppProva from "./components/AppProva.vue";
 import AppMain from "./components/AppMain.vue";
 import AppFooter from "./components/AppFooter.vue";
 
@@ -12,20 +12,33 @@ export default {
     components: {
         AppHeader,
         AppHero,
-        AppCard,
+        AppProva,
         AppMain,
         AppFooter,
         jsonData
     },
 
-    data(){
+    data() {
         return {
-            realData: jsonData
+            realData: jsonData,
+            prova: {
+                "thumb": "https://static.wikia.nocookie.net/marvel_dc/images/c/c8/Catwoman_Vol_2_1.jpg",
+                "price": "$16.99",
+                "series": "Catwoman",
+                "type": "graphic novel"
+            },
+            newArrayObject: [],
         }
     },
 
-    created(){
-        console.warn(jsonData);
+    created() {
+        console.warn(jsonData, typeof jsonData);
+
+        jsonData.forEach((currItem) => {
+            this.newArrayObject.push(currItem);
+        });
+
+        console.log(this.newArrayObject);
     }
 }
 </script>
@@ -34,24 +47,24 @@ export default {
     <section>
         <AppHeader />
     </section>
-    
+
     <section>
         <AppHero />
     </section>
-    
+
     <section>
-        <AppCard />
+        <div class="container flex-wrap">
+            <AppProva v-for="currItem in newArrayObject" :Cardthumb="currItem.thumb" :CardSeries="currItem.series" />
+        </div>
     </section>
 
     <section>
         <AppMain />
     </section>
-    
+
     <section>
         <AppFooter />
     </section>
 </template>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>
