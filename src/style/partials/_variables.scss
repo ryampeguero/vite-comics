@@ -4,13 +4,15 @@ $mainColor: #0282F9;
 $bottomFooterColor: #303030;
 
 // Height Vars
-$navHeight: 10vh;
-$heroHeight: 20vh;
-$footerHeight: 50vh;
-$mainHeight: calc(100vh - $navHeight - $heroHeight - $footerHeight);
+$navHeight: 80px;
+$heroHeight: 300px;
+$cardSectHeight: 10vh;
+$footerHeight: 600px;
+$mainHeight: 100px;
+
 // footers heights
-$topFooter: calc($footerHeight - 15vh);
-$bottomFooter: calc($footerHeight - $topFooter);
+$topFooter: calc($footerHeight / 2);
+$bottomFooter: 80px;
 
 // Width Vars 
 $heroWidth: 100vw;

@@ -162,20 +162,24 @@ export default {
 
 <template>
     <div class="top-Footer">
-        <div class="left-Items">
-            <ul v-for="title in topFooterItems">
-                <li v-for="currItem in title"><a href="" :class="(currItem.isTitle) ? 'title' : ''">{{
-                    currItem.itemName }}</a></li>
-            </ul>
+        <div class="container">
+            <div class="left-Items">
+                <ul v-for="title in topFooterItems">
+                    <li v-for="currItem in title"><a href="" :class="(currItem.isTitle) ? 'title' : ''">{{
+                        currItem.itemName }}</a></li>
+                </ul>
+            </div>
+
+            <div class="dc-logo">
+
+            </div>
         </div>
 
-        <div class="dc-logo">
-
-        </div>
     </div>
 
     <div class="bottom-Footer">
-        <button class="sign-btn">
+        <div class="container flex-between">
+            <button class="sign-btn">
             SIGN-UP NOW!
         </button>
 
@@ -190,6 +194,8 @@ export default {
 
             </ul>
         </div>
+        </div>
+        
     </div>
 </template>
 
@@ -213,8 +219,8 @@ export default {
         flex-wrap: wrap;
         gap: 5px;
         max-height: $topFooter;
-        margin: 0 40px;
-        padding: 0 40px;
+        // margin: 0 40px;
+        // padding: 0 40px;
         // debug
         // border: 1px solid white;
 
@@ -264,6 +270,7 @@ export default {
 
 .bottom-Footer {
     @include flex(row, space-between, center);
+    
     position: relative;
     min-height: $bottomFooter;
     background-color: $bottomFooterColor;
@@ -287,7 +294,7 @@ export default {
 
         margin: 0 40px;
         width: 40%;
-
+        border: 2px solid white;
         div {
             color: $mainColor;
             font-weight: 700;
@@ -295,15 +302,16 @@ export default {
 
 
         ul {
-            @include flex(row, center, center);
+            @include flex(row, space-between, center);
             list-style: none;
             gap: 15px;
+
             li {
-                
+
                 a {
                     text-decoration: none;
                     text-align: center;
-                    
+
                     img {
                         width: 30px;
                         aspect-ratio: 1;

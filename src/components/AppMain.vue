@@ -39,7 +39,7 @@ export default {
 
 <template>
     <div class="content">
-        <ul>
+        <ul class="container">
             <li v-for="currItem in mainItems"><a href=""><img :src="getImgItem(currItem.iconUrl)"
                         :class="(currItem.iconUrl === 'buy-comics-shop-locator.png') ? 'locator' : ''"></img>{{
                             currItem.itemName }}</a></li>
@@ -76,17 +76,18 @@ export default {
             a {
                 @include flex(row, center, center);
 
+                font-size: 0.9rem;
                 text-decoration: none;
                 text-align: center;
                 color: white;
                 gap: 5px;
 
                 img {
-                    width: 30px;
+                    width: 25px;
                 }
 
                 .locator {
-                    max-width: 22px;
+                    max-width: 17px;
                     // max-height: 10px;
                 }
             }
